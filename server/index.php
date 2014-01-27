@@ -12,6 +12,10 @@ $type_in = $data['type'];
 $sender_id = $data['sender_id'];
 $text = $data['text'];
 $type = "articles";
+//纯文本回复
+//$type = "text";
+//$replayText = json_encode(array("text" => '收到 "' . $text . '"'));
+//图文方式回复
 $replayText = json_encode(
     array(
         "articles" => array(
@@ -24,6 +28,32 @@ $replayText = json_encode(
         )   
     )   
 );
+//多图文方式回复，多个图文时在“articles”中添加多个数组既可，最多支持8个
+//    $type = "articles";
+//    $replayText = json_encode(
+//        array(
+//            "articles" => array(
+//                array (
+//                    'display_name'=>'图文标题1',
+//                    'summary'=>'图文摘要​1',
+//                    'image'=>'http://storage.mcp.weibo.cn/0JlIv.jpg',
+//                    'url'=>'http://open.weibo.com/wiki/Messages'
+//                ),
+//                array (
+//                    'display_name'=>'图文标题2',
+//                    'summary'=>'图文摘要​2',
+//                    'image'=>'http://ww2.sinaimg.cn/small/71666d49tw1dxms4qp4q0j.jpg',
+//                    'url'=>'http://open.weibo.com/wiki/Messages'
+//                ),
+//                array (
+//                    'display_name'=>'图文标题3',
+//                    'summary'=>'图文摘要​3',
+//                    'image'=>'http://http://ww2.sinaimg.cn/small/71666d49tw1dxms5mm654j.jpg',
+//                    'url'=>'http://open.weibo.com/wiki/Messages'
+//                )
+//            )
+//        )
+//    );
 $post = array(
     "id" => $message_id,
     'source' => SOURCE_ID,
