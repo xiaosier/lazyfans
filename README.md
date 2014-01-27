@@ -20,7 +20,7 @@
 部署脚本：
 
 ```
-#nohup lazyfans.py &
+#nohup python lazyfans.py &
 ```
 
 web端
